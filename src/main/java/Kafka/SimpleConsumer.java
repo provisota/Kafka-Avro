@@ -1,14 +1,11 @@
 package Kafka;
 
-import Message.EventMessage;
-import Message.EventMessageDeserializer;
 import Rule.RuleDeserializer;
 import Rule.RuleMessage;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
 

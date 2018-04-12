@@ -2,11 +2,13 @@ package Kafka;
 
 import Message.EventMessage;
 import Message.EventMessageSerializer;
-import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.EOFException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
@@ -58,13 +60,7 @@ public class SimpleProducer {
                 event.setMachine(machines[new Random().nextInt(machines.length)]);
                 sp.publish(eventMessageSerializer.serializeMessage(event), event.getId().toString());
             }
-        } catch (EOFException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (ExecutionException | InterruptedException | IOException e) {
             e.printStackTrace();
         }
     }

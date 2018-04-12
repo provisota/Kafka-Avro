@@ -17,7 +17,7 @@
     },
     {
       "name": "status",
-      "type": "string"
+      "type": "float"
     },
     {
       "name": "building",
